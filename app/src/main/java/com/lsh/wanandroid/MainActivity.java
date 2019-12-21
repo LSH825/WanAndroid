@@ -41,8 +41,8 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                View view = bottomNav.getMenu();
-                bottomNav.setSelectedItemId(view.getId());
+//                View view = bottomNav.getMenu();
+//                bottomNav.setSelectedItemId(view.getId());
             }
 
             @Override
