@@ -2,30 +2,32 @@ package com.lsh.wanandroid.base;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragmentList = new ArrayList<>();
+public class BaseFragmentPagerAdapter extends FragmentStateAdapter {
+    private List<Fragment> fragmentList;
 
-    public BaseFragmentPagerAdapter(@NonNull FragmentManager fm, List<Fragment> list) {
-        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        if (fragmentList != null) {
-            fragmentList.addAll(list);
-        }
+    public BaseFragmentPagerAdapter(@NonNull FragmentActivity fragmentActivity, @NonNull List<Fragment> list) {
+        super(fragmentActivity);
+        this.fragmentList = list;
+    }
+
+    public BaseFragmentPagerAdapter(@NonNull Fragment fragment, @NonNull List<Fragment> list) {
+        super(fragment);
+        this.fragmentList = list;
     }
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
+    public Fragment createFragment(int position) {
         return fragmentList.get(position);
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return fragmentList.size();
     }
 }

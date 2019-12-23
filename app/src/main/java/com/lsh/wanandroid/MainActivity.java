@@ -1,14 +1,13 @@
 package com.lsh.wanandroid;
 
-import android.view.View;
-
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lsh.wanandroid.base.BaseActivity;
 import com.lsh.wanandroid.base.BaseFragmentPagerAdapter;
-import com.lsh.wanandroid.ui.HomeFragment;
+import com.lsh.wanandroid.ui.TabHomeFragment;
+import com.lsh.wanandroid.ui.TabMineFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.view_pager)
-    ViewPager viewPager;
+    ViewPager2 viewPager;
     @BindView(R.id.bottom_nav)
     BottomNavigationView bottomNav;
 
@@ -28,38 +27,31 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        viewPager.setAdapter(new BaseFragmentPagerAdapter(getSupportFragmentManager(), getTabFragment()));
+        viewPager.setAdapter(new BaseFragmentPagerAdapter(this, getTabFragment()));
+        viewPager.setUserInputEnabled(false);
         setUpWithViewPager(viewPager);
     }
 
-    private void setUpWithViewPager(ViewPager viewPager) {
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    private int[] mItemIdArray = {R.id.nav_bottom_home, R.id.nav_bottom_1, R.id.nav_bottom_mine};
 
-            }
-
+    private void setUpWithViewPager(ViewPager2 viewPager) {
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
-//                View view = bottomNav.getMenu();
-//                bottomNav.setSelectedItemId(view.getId());
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
+                super.onPageSelected(position);
+                bottomNav.setSelectedItemId(mItemIdArray[position]);
             }
         });
         bottomNav.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId()) {
                 case R.id.nav_bottom_home:
-                    viewPager.setCurrentItem(0);
+                    viewPager.setCurrentItem(0, false);
                     return true;
                 case R.id.nav_bottom_1:
-                    viewPager.setCurrentItem(1);
+                    viewPager.setCurrentItem(1, false);
                     return true;
                 case R.id.nav_bottom_mine:
-                    viewPager.setCurrentItem(2);
+                    viewPager.setCurrentItem(2, false);
                     return true;
             }
             return false;
@@ -69,9 +61,9 @@ public class MainActivity extends BaseActivity {
 
     private List<Fragment> getTabFragment() {
         List<Fragment> list = new ArrayList<>();
-        list.add(HomeFragment.newInstance());
-        list.add(HomeFragment.newInstance());
-        list.add(HomeFragment.newInstance());
+        list.add(TabHomeFragment.newInstance());
+        list.add(TabHomeFragment.newInstance());
+        list.add(TabMineFragment.newInstance());
         return list;
     }
 }
