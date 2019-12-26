@@ -1,22 +1,35 @@
 package com.lsh.common.http;
 
-public class ResultEntity {
-    private int errcode;
-    private String errmsg;
+import com.google.gson.annotations.SerializedName;
 
-    public int getErrcode() {
-        return errcode;
+public class ResultEntity<T> {
+    private T data;
+    @SerializedName("errorCode")
+    private int errorCode;
+    @SerializedName("errorMsg")
+    private String errorMsg;
+
+    public int getErrorCode() {
+        return errorCode;
     }
 
-    public void setErrcode(int errcode) {
-        this.errcode = errcode;
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
     }
 
-    public String getErrmsg() {
-        return errmsg;
+    public String getErrorMsg() {
+        return errorMsg;
     }
 
-    public void setErrmsg(String errmsg) {
-        this.errmsg = errmsg;
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }

@@ -8,6 +8,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.lsh.common.http.ApiCallBack;
+import com.lsh.common.http.ApiService;
+import com.lsh.common.http.HttpManager;
 import com.lsh.common.http.HttpUtils;
 import com.lsh.common.http.ResultEntity;
 import com.lsh.wanandroid.R;
@@ -56,20 +58,7 @@ public class TabHomeFragment extends BaseFragment {
                 tab.setText(titleList.get(position));
             }
         }).attach();
-        getHttpData();
+
     }
 
-    private void getHttpData(){
-        HttpUtils.getInstance().post("", new LinkedHashMap<>(), new ApiCallBack<ResultEntity>() {
-            @Override
-            public void onSuccess(ResultEntity resultEntity) {
-
-            }
-
-            @Override
-            public void onFailure(int code, String msg, ResultEntity resultEntity) {
-
-            }
-        });
-    }
 }

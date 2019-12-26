@@ -1,21 +1,27 @@
 package com.lsh.wanandroid.ui;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.lsh.common.http.ApiCallBack;
+import com.lsh.common.http.HttpManager;
+import com.lsh.common.http.HttpUtils;
+import com.lsh.common.http.ResultEntity;
+import com.lsh.common.http.TestBean;
 import com.lsh.wanandroid.R;
 import com.lsh.wanandroid.base.BaseFragment;
+
+import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HomePageFragment extends BaseFragment {
     private static final String ARG_PARAM1 = "param1";
+    @BindView(R.id.btn_click)
+    Button btnClick;
     private String mParam1;
 
     public HomePageFragment() {
@@ -45,6 +51,21 @@ public class HomePageFragment extends BaseFragment {
 
     @Override
     public void initView() {
+        btnClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HttpManager.getArticle(0, new ApiCallBack<TestBean>() {
+                    @Override
+                    public void onSuccess(TestBean resultEntity) {
 
+                    }
+
+                    @Override
+                    public void onFailure(int code, String msg, TestBean resultEntity) {
+
+                    }
+                });
+            }
+        });
     }
 }
