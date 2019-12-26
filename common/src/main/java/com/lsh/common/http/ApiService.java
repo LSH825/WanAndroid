@@ -12,13 +12,19 @@ public interface ApiService {
     String KEY_ERROR_CODE_NO_DATA = "数据为空";
     /*------------------------------------------------------------------------------------------------*/
     String API_HOST = "https://www.wanandroid.com/";
-    /*------------------------------------------------------------------------------------------------*/
+    /*-------------------------------------接口-----------------------------------------------------------*/
+
+    /**
+     * 首页banner
+     */
+    @GET("banner/json")
+    Call<String> getBanner();
+
     @GET("article/list/{num}/json")
-    Call<String> getArticle2(@Path("num") String num);
+    Call<String> getArticle(@Path("num") String num);
 
     @GET("article/listproject/{num}/json")
-    Call<TestBean> listproject(@Path("num") String num);
-
+    Call<String> listproject(@Path("num") String num);
 
 
 }

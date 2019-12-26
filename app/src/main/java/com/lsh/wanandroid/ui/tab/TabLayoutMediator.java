@@ -1,4 +1,4 @@
-package com.lsh.wanandroid.ui;
+package com.lsh.wanandroid.ui.tab;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

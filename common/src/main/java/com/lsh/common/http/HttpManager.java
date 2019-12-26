@@ -11,9 +11,11 @@ import retrofit2.Response;
 public class HttpManager {
     /*---------------------------------------------------接口----------------------------------------------------------------*/
     public static <T extends ResultEntity> void getArticle(int page, final ApiCallBack<T> apiCallBack) {
-        callEnqueue(HttpUtils.getInstance().getService().getArticle2(String.valueOf(page)), apiCallBack);
+        callEnqueue(HttpUtils.getInstance().getService().getArticle(String.valueOf(page)), apiCallBack);
     }
-
+    public static <T extends ResultEntity> void getBanner( final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getBanner(), apiCallBack);
+    }
     /*---------------------------------------------------结果处理----------------------------------------------------------------*/
     private static <T extends ResultEntity> void callEnqueue(Call<String> call, final ApiCallBack<T> apiCallBack) {
         call.enqueue(new Callback<String>() {

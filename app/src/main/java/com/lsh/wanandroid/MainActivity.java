@@ -6,8 +6,9 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lsh.wanandroid.base.BaseActivity;
 import com.lsh.wanandroid.base.BaseFragmentPagerAdapter;
-import com.lsh.wanandroid.ui.TabHomeFragment;
-import com.lsh.wanandroid.ui.TabMineFragment;
+import com.lsh.wanandroid.ui.tab.TabHomeFragment;
+import com.lsh.wanandroid.ui.tab.TabMineFragment;
+import com.lsh.wanandroid.ui.tab.TabProjectFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class MainActivity extends BaseActivity {
     private List<Fragment> getTabFragment() {
         List<Fragment> list = new ArrayList<>();
         list.add(TabHomeFragment.newInstance());
-        list.add(TabHomeFragment.newInstance());
+        list.add(TabProjectFragment.newInstance());
         list.add(TabMineFragment.newInstance());
         return list;
     }
