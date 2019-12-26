@@ -1,88 +1,104 @@
 package com.lsh.wanandroid.entity;
 
-public class BannerEntity {
+import com.lsh.common.http.ResultEntity;
 
-    /**
-     * desc :
-     * id : 20
-     * imagePath : https://www.wanandroid.com/blogimgs/90c6cc12-742e-4c9f-b318-b912f163b8d0.png
-     * isVisible : 1
-     * order : 2
-     * title : flutter 中文社区
-     * type : 1
-     * url : https://flutter.cn/
-     */
+import java.util.List;
 
-    private String desc;
-    private int id;
-    private String imagePath;
-    private int isVisible;
-    private int order;
-    private String title;
-    private int type;
-    private String url;
+public class BannerEntity extends ResultEntity {
 
-    public String getDesc() {
-        return desc;
+    private List<DataBean> data;
+
+    public List<DataBean> getData() {
+        return data;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setData(List<DataBean> data) {
+        this.data = data;
     }
 
-    public int getId() {
-        return id;
-    }
+    public static class DataBean {
+        /**
+         * desc : 享学~
+         * id : 29
+         * imagePath : https://wanandroid.com/blogimgs/75636a23-2dd2-416e-9660-1d86cba691ff.png
+         * isVisible : 1
+         * order : 0
+         * title : 如果没有它，app会有多大？
+         * type : 0
+         * url : https://mp.weixin.qq.com/s/3CHavaUboQHVOKjrziZGCg
+         */
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        private String desc;
+        private int id;
+        private String imagePath;
+        private int isVisible;
+        private int order;
+        private String title;
+        private int type;
+        private String url;
 
-    public String getImagePath() {
-        return imagePath;
-    }
+        public String getDesc() {
+            return desc;
+        }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
 
-    public int getIsVisible() {
-        return isVisible;
-    }
+        public int getId() {
+            return id;
+        }
 
-    public void setIsVisible(int isVisible) {
-        this.isVisible = isVisible;
-    }
+        public void setId(int id) {
+            this.id = id;
+        }
 
-    public int getOrder() {
-        return order;
-    }
+        public String getImagePath() {
+            return imagePath;
+        }
 
-    public void setOrder(int order) {
-        this.order = order;
-    }
+        public void setImagePath(String imagePath) {
+            this.imagePath = imagePath;
+        }
 
-    public String getTitle() {
-        return title;
-    }
+        public int getIsVisible() {
+            return isVisible;
+        }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+        public void setIsVisible(int isVisible) {
+            this.isVisible = isVisible;
+        }
 
-    public int getType() {
-        return type;
-    }
+        public int getOrder() {
+            return order;
+        }
 
-    public void setType(int type) {
-        this.type = type;
-    }
+        public void setOrder(int order) {
+            this.order = order;
+        }
 
-    public String getUrl() {
-        return url;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public void setUrl(String url) {
-        this.url = url;
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
     }
 }

@@ -2,8 +2,7 @@ package com.lsh.common.http;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ResultEntity<T> {
-    private T data;
+public class ResultEntity {
     @SerializedName("errorCode")
     private int errorCode;
     @SerializedName("errorMsg")
@@ -25,11 +24,4 @@ public class ResultEntity<T> {
         this.errorMsg = errorMsg;
     }
 
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }
