@@ -20,8 +20,23 @@ public interface ApiService {
     @GET("banner/json")
     Call<String> getBanner();
 
-    @GET("article/list/{num}/json")
-    Call<String> getArticle(@Path("num") String num);
+    /**
+     * 文章列表
+     */
+    @GET("article/list/{page}/json")
+    Call<String> getArticle(@Path("page") int page);
+
+    /**
+     * 常用网站
+     */
+    @GET("friend/json")
+    Call<String> getFriendSite();
+
+    /**
+     * 热搜词
+     */
+    @GET("hotkey/json")
+    Call<String> getHotKey();
 
     @GET("article/listproject/{num}/json")
     Call<String> listproject(@Path("num") String num);

@@ -9,13 +9,6 @@ import retrofit2.Response;
 //import org.jetbrains.annotations.NotNull;
 
 public class HttpManager {
-    /*---------------------------------------------------接口----------------------------------------------------------------*/
-    public static <T extends ResultEntity> void getArticle(int page, final ApiCallBack<T> apiCallBack) {
-        callEnqueue(HttpUtils.getInstance().getService().getArticle(String.valueOf(page)), apiCallBack);
-    }
-    public static <T extends ResultEntity> void getBanner( final ApiCallBack<T> apiCallBack) {
-        callEnqueue(HttpUtils.getInstance().getService().getBanner(), apiCallBack);
-    }
     /*---------------------------------------------------结果处理----------------------------------------------------------------*/
     private static <T extends ResultEntity> void callEnqueue(Call<String> call, final ApiCallBack<T> apiCallBack) {
         call.enqueue(new Callback<String>() {
@@ -56,4 +49,35 @@ public class HttpManager {
     private static <T> void handleFailure(ApiCallBack<T> apiCallBack) {
         apiCallBack.onFailure(ApiService.ERROR_CODE_NET_FAUILE, ApiService.KEY_ERROR_CODE_NET_FAUILE, null);
     }
+    /*---------------------------------------------------接口----------------------------------------------------------------*/
+
+    /**
+     * banner
+     */
+    public static <T extends ResultEntity> void getBanner(final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getBanner(), apiCallBack);
+    }
+
+    /**
+     * 文章列表
+     */
+    public static <T extends ResultEntity> void getArticle(int page, final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getArticle(page), apiCallBack);
+    }
+
+    /**
+     * 常见网站
+     */
+    public static <T extends ResultEntity> void getFriendSite(final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getFriendSite(), apiCallBack);
+    }
+
+    /**
+     * 热搜词
+     */
+    public static <T extends ResultEntity> void getHotKey(final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getHotKey(), apiCallBack);
+    }
+
+
 }

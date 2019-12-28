@@ -1,9 +1,10 @@
-package com.lsh.wanandroid;
+package com.lsh.wanandroid.ui;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.lsh.wanandroid.R;
 import com.lsh.wanandroid.base.BaseActivity;
 import com.lsh.wanandroid.base.BaseFragmentPagerAdapter;
 import com.lsh.wanandroid.ui.tab.TabHomeFragment;
@@ -43,6 +44,8 @@ public class MainActivity extends BaseActivity {
                 bottomNav.setSelectedItemId(mItemIdArray[position]);
             }
         });
+        //
+        bottomNav.setItemIconTintList(null);
         bottomNav.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId()) {
                 case R.id.nav_bottom_home:
