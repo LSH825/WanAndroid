@@ -79,5 +79,10 @@ public class HttpManager {
         callEnqueue(HttpUtils.getInstance().getService().getHotKey(), apiCallBack);
     }
 
-
+    /**
+     * 置顶文章
+     */
+    public static <T extends ResultEntity> void getTopArticle(final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getTopArticle(), apiCallBack);
+    }
 }

@@ -38,6 +38,13 @@ public interface ApiService {
     @GET("hotkey/json")
     Call<String> getHotKey();
 
+    /**
+     * 置顶文章
+     */
+    @GET("article/top/json")
+    Call<String> getTopArticle();
+
+
     @GET("article/listproject/{num}/json")
     Call<String> listproject(@Path("num") String num);
 
