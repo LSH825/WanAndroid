@@ -18,7 +18,12 @@ public class HttpUtils {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .readTimeout(10, TimeUnit.SECONDS)//
                 .connectTimeout(10, TimeUnit.SECONDS)//
+                //log
                 .addInterceptor(logging)
+                //cache
+                .addInterceptor(new AddCookiesInterceptor())
+                .addInterceptor(new SaveCookiesInterceptor())
+                //ssl
                 .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
                 .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
                 .build();
@@ -29,6 +34,7 @@ public class HttpUtils {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
+
 
     private static class Holder {
         private static HttpUtils INSTANCE = new HttpUtils();

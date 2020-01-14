@@ -85,4 +85,24 @@ public class HttpManager {
     public static <T extends ResultEntity> void getTopArticle(final ApiCallBack<T> apiCallBack) {
         callEnqueue(HttpUtils.getInstance().getService().getTopArticle(), apiCallBack);
     }
+
+    /**
+     * 体系
+     */
+    public static <T extends ResultEntity> void getTree(final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getTree(), apiCallBack);
+    }
+
+    /**
+     * 体系文章
+     */
+    public static <T extends ResultEntity> void getTreeArticle(int page, String cid, final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().getTreeArticle(page, cid), apiCallBack);
+    }
+    public static <T extends ResultEntity> void login(String account,String pwd, final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().login(account, pwd), apiCallBack);
+    }
+    public static <T extends ResultEntity> void register(String account,String pwd, String repwd, final ApiCallBack<T> apiCallBack) {
+        callEnqueue(HttpUtils.getInstance().getService().register(account, pwd,repwd), apiCallBack);
+    }
 }

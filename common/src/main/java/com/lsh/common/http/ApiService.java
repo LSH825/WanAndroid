@@ -1,8 +1,12 @@
 package com.lsh.common.http;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
     /*-------------------------------------------------------------------------------------------------*/
@@ -45,8 +49,37 @@ public interface ApiService {
     Call<String> getTopArticle();
 
 
+    /**
+     * 体系
+     */
+    @GET("tree/json")
+    Call<String> getTree();
+
+    /**
+     * 知识体系下的文章
+     */
+    @GET("article/list/{page}/json")
+    Call<String> getTreeArticle(@Path("page") int page, @Query("cid") String cid);
+
+
+    /**
+     * 按照作者昵称搜索文章
+     */
+    @GET("article/list/{page}/json?author={author}")
+    Call<String> getTreeArticleByAuthor(@Path("page") int page, @Path("author") String author);
+
     @GET("article/listproject/{num}/json")
     Call<String> listproject(@Path("num") String num);
 
+    @FormUrlEncoded
+    @POST("user/login")
+    Call<String> login(@Field("username") String username, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("user/register")
+    Call<String> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
+
+    @GET("user/logout/json")
+    Call<String> logout();
 
 }

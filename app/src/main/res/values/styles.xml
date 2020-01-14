@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -17,5 +17,13 @@
         <item name="android:textColor">@color/font3</item>
         <item name="android:textSize">14sp</item>
     </style>
-
+    <!--启动页面的主题-->
+    <style name="Theme.SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:clipToPadding">true</item>
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
 </resources>

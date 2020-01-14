@@ -5,7 +5,11 @@
         android:icon="@mipmap/ic_launcher"
         android:title="@string/nav_bottom_home" />
     <item
-        android:id="@+id/nav_bottom_1"
+        android:id="@+id/nav_bottom_tree"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/nav_bottom_tree" />
+    <item
+        android:id="@+id/nav_bottom_project"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/nav_bottom_other" />
     <item

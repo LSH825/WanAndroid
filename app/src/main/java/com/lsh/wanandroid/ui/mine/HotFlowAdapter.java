@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.lsh.common.utils.TextUtils;
+import com.lsh.common.utils.StringUtils;
 import com.lsh.wanandroid.R;
 import com.lsh.wanandroid.entity.HotKeyEntity;
 
@@ -18,6 +18,6 @@ public class HotFlowAdapter extends BaseQuickAdapter<HotKeyEntity.DataBean, Base
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, HotKeyEntity.DataBean item) {
-        helper.setText(R.id.tv_title, TextUtils.getSafeString(item.getName()));
+        helper.setText(R.id.tv_title, StringUtils.getSafeString(item.getName()));
     }
 }

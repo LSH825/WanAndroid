@@ -2,10 +2,9 @@ package com.lsh.wanandroid.base.web;
 
 import android.graphics.Bitmap;
 
-import com.lsh.common.utils.TextUtils;
+import com.lsh.common.utils.StringUtils;
 import com.lsh.wanandroid.R;
 import com.lsh.wanandroid.base.BaseActivity;
-import com.lsh.wanandroid.base.web.JsApi;
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
@@ -44,7 +43,7 @@ public class BaseWebViewActivity extends BaseActivity {
         webView.addJavascriptObject(new JsApi(), null);
         DWebView.setWebContentsDebuggingEnabled(true);//debug
         String link = getIntent().getStringExtra(KEY_INTENT_LINK);
-        webView.loadUrl(TextUtils.getSafeString(link));
+        webView.loadUrl(StringUtils.getSafeString(link));
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView webView, String s) {
